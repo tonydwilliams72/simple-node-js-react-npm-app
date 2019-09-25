@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                args '-u root:sudo'
                 sh 'npm install'
             }
         }
