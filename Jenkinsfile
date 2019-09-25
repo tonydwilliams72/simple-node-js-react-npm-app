@@ -2,13 +2,13 @@ pipeline {
     agent {
         docker {
             image 'node:6-alpine'
-            args '-u root:sudo'
             args '-p 3000:3000'
         }
     }
     stages {
         stage('Build') {
             steps {
+                args '-u root:sudo'
                 sh 'npm install'
             }
         }
