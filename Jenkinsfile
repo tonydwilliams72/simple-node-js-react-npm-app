@@ -6,11 +6,17 @@ pipeline {
             args '-u 0:0'
         }
     }
+    enviroment {
+        CI = 'true'
+    }
     stages {
         stage('Build') { 
             steps {
                 sh 'npm install' 
             }
+        }
+        stage ('Test') {
+            sh './jenkins/scripts/test.sh'
         }
     }
 }
